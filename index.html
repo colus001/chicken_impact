@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Impact Game</title>
+  <style type="text/css">
+  html,body {
+    background-color: #333;
+    color: #fff;
+    font-family: helvetica, arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 12pt;
+  }
+  #canvas {
+    /*position: absolute;*/
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0px auto 50px;
+  }
+  table {
+    display: inline-table;
+    margin-left: 15px;
+  }
+  .tutorial {
+    width: 500px;
+    float: right;
+  }
+  </style>
+
+  <script type="text/javascript" src="lib/impact/impact.js"></script>
+  <script type="text/javascript" src="lib/game/main.js"></script>
+</head>
+<body>
+  <div class="tutorial">
+    <div>
+      <TABLE>
+        <td colspan="5" align="center">닭 구매</td>
+        <TR>
+          <th align="center">종류</th>
+          <th align="center">단계</th>
+          <th align="center">개수</th>
+          <th align="center">수명(s)</th>
+          <th align="center">구매가격</th>
+        </tr>
+        <tr>
+          <TD align="center">암</TD>
+          <TD align="center">1</TD>
+          <TD align="center">1</TD>
+          <TD align="center">70</TD>
+          <TD align="center">300</TD>
+        </tr>
+        <tr>
+          <TD align="center">수</TD>
+          <TD align="center">1</TD>
+          <TD align="center">1</TD>
+          <TD align="center">50</TD>
+          <TD align="center">150</TD>
+        </tr>
+      </TABLE>
+
+      <TABLE>
+        <td colspan="3" align="center">먹이 구매</td>
+        <TR>
+          <th align="center">단계</th>
+          <th align="center">품질 상승</th>
+          <th align="center">가격</th>
+        </tr>
+        <tr>
+          <TD align="center">1</TD>
+          <TD align="center">30</TD>
+          <TD align="center">600</TD>
+        </tr>
+      </TABLE>
+
+    </div>
+
+    <hr>
+
+    <div>
+      <TABLE>
+        <td colspan="3" align="center">바구니 업그레이드</td>
+        <TR>
+          <th align="center">단계</th>
+          <th align="center">계란 최대 개수</th>
+          <th align="center">가격</th>
+        </tr>
+        <tr>
+          <TD align="center">1</TD>
+          <TD align="center">8</TD>
+          <TD align="center">0</TD>
+        </tr>
+        <tr>
+          <TD align="center">2</TD>
+          <TD align="center">16</TD>
+          <TD align="center">400</TD>
+        </tr>
+        <tr>
+          <TD align="center">3</TD>
+          <TD align="center">24</TD>
+          <TD align="center">500</TD>
+        </tr>
+        <tr>
+          <TD align="center">4</TD>
+          <TD align="center">32</TD>
+          <TD align="center">600</TD>
+        </tr>
+        <tr>
+          <TD align="center">5</TD>
+          <TD align="center">40</TD>
+          <TD align="center">700</TD>
+        </tr>
+        <tr>
+          <TD align="center">6</TD>
+          <TD align="center">48</TD>
+          <TD align="center">800</TD>
+        </tr>
+        <tr>
+          <TD align="center">7</TD>
+          <TD align="center">56</TD>
+          <TD align="center">900</TD>
+        </tr>
+        <tr>
+          <TD align="center">8</TD>
+          <TD align="center">64</TD>
+          <TD align="center">1000</TD>
+        </tr>
+        <tr>
+          <TD align="center">9</TD>
+          <TD align="center">72</TD>
+          <TD align="center">1100</TD>
+        </tr>
+        <tr>
+        </TABLE>
+
+        <TABLE>
+          <td colspan="3" align="center">공간 업그레이드</td>
+          <TR>
+            <th align="center">단계</th>
+            <th align="center">닭 최대 개수</th>
+            <th align="center">요소 비용</th>
+          </tr>
+          <tr>
+            <TD align="center">1</TD>
+            <TD align="center">10</TD>
+            <TD align="center">0</TD>
+          </tr>
+          <tr>
+            <TD align="center">2</TD>
+            <TD align="center">14</TD>
+            <TD align="center">5000</TD>
+          </tr>
+          <tr>
+            <TD align="center">3</TD>
+            <TD align="center">20</TD>
+            <TD align="center">18500</TD>
+          </tr>
+          <tr>
+            <TD align="center">4</TD>
+            <TD align="center">28</TD>
+            <TD align="center">41500</TD>
+          </tr>
+          <tr>
+            <TD align="center">5</TD>
+            <TD align="center">38</TD>
+            <TD align="center">84400</TD>
+          </tr>
+          <tr>
+            <TD align="center">6</TD>
+            <TD align="center">50</TD>
+            <TD align="center">151900</TD>
+          </tr>
+          <tr>
+            <TD align="center">7</TD>
+            <TD align="center">64</TD>
+            <TD align="center">264000</TD>
+          </tr>
+          <tr>
+            <TD align="center">8</TD>
+            <TD align="center">80</TD>
+            <TD align="center">414000</TD>
+          </tr>
+          <tr>
+            <TD align="center">9</TD>
+            <TD align="center">98</TD>
+            <TD align="center">627900</TD>
+          </tr>
+        </TABLE>
+      </div>
+
+      <hr>
+
+      <div>
+        <TABLE>
+          <td colspan="5" align="center">알 생성과 종류</td>
+          <TR>
+            <th align="center">종류</th>
+            <th align="center">단계</th>
+            <th align="center">최소품질</th>
+            <th align="center">판매가격</th>
+            <th align="center">생성방법</th>
+          </tr>
+          <tr>
+            <TD align="center">무정란</TD>
+            <TD align="center">0</TD>
+            <TD align="center">0</TD>
+            <TD align="center">37</TD>
+            <TD align="center">암:수=1:3 비율이 아닌 경우</TD>
+          </tr>
+          <tr>
+            <td rowspan="5" align="center">유정란</td>
+            <TD align="center">1</TD>
+            <TD align="center">0</TD>
+            <TD align="center">150</TD>
+            <td rowspan="5" align="center">암:수=1:3 비율인 경우</td>
+          </tr>
+          <tr>
+            <TD align="center">2</TD>
+            <TD align="center">100</TD>
+            <TD align="center">225</TD>
+          </tr>
+          <tr>
+            <TD align="center">3</TD>
+            <TD align="center">300</TD>
+            <TD align="center">337</TD>
+          </tr>
+          <tr>
+            <TD align="center">4</TD>
+            <TD align="center">500</TD>
+            <TD align="center">505</TD>
+          </tr>
+          <tr>
+            <TD align="center">5</TD>
+            <TD align="center">700</TD>
+            <TD align="center">757</TD>
+          </tr>
+        </TABLE>
+      </div>
+
+      <hr>
+
+      <div>
+        <TABLE>
+          <TR>
+            <th align="center">품질</th>
+            <th align="center">알 낳기</th>
+          </tr>
+          <tr>
+            <TD align="center">20초 마다 품질 10% 감소</TD>
+            <td rowspan="2" align="center">5초 마다 암탉1마리당 1개 알 생성</td>
+          </tr>
+          <tr>
+            <TD align="center">닭 폐사시 품질 10% 감소</TD>
+          </tr>
+        </TABLE>
+      </div>
+
+      <hr>
+
+    </div>
+
+    <div>
+
+      <canvas id="canvas"></canvas>
+
+      <div>
+        <TABLE width="640">
+          <tr>
+            <td>게임 설명:농장에서 닭을 사서 알을 얻고 팔아서 닭을 사서 알을 얻고 팔아서...부자가 되자!</td>
+            <td>
+              <tr><td>1. 판매할 알을 얻기 위해 암탉과 수탉 버튼을 눌러 구매하세요.</td></tr>
+              <tr><td>2. 알은 암탉만 낳으며 3마리 당 수컷이 한마리가 있으면 비싼 유정란을 얻을 수 있습니다.. </td><tr>
+              <tr><td>3. 닭이 알을 낳으면 바구니에 담기며 업그래이드 하면 담을 수 있는 알의 수가 증가합니다.</td></tr>              
+              <tr><td>4. 울타리를 업그래이드하면 키울 수 있는 닭의 최대 수가 증가합니다.</td></tr>
+              <tr><td>5. 닭은 배가 고프면 품질 좋은 비싼 알을 낳지 않습니다. 먹이를 적당히 주세요.</td></tr>
+              <tr><td>6. 닭은 그리 오래 살지 못하며 모든 닭이 죽게되면 게임이 끝나게 됩니다.</td><tr>
+            </td>
+          </tr>
+        </TABLE>
+      </div>
+
+    </div>
+
+  </body>
+  </html>
