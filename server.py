@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import BaseHTTPServer
 import cgi
 import glob
@@ -76,6 +78,10 @@ class HTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_GET(self):
         self.init_request()
         self.route_request('GET')
+
+    def do_HEAD(self):
+        self.init_request()
+        self.send_response('')
 
     def do_POST(self):
         self.init_request()
